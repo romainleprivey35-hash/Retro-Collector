@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #ec5b13;
+  --color-background-light: #F5F5DC;
+  --color-background-dark: #221610;
+}
+
+@layer base {
+  body {
+    @apply bg-background-light font-sans text-slate-900;
+    overscroll-behavior: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+  }
+
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-xl border border-white/50 shadow-xl;
+  }
+  
+  .deep-shadow {
+    @apply shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)];
+  }
+  
+  .nav-glass {
+    @apply bg-white/60 backdrop-blur-2xl border-t border-white/20;
+  }
+}

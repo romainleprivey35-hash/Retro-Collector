@@ -1,0 +1,232 @@
+import { Game, PlatformStats } from './types';
+
+export const PLATFORMS: PlatformStats[] = [
+  {
+    name: 'Nintendo',
+    systems: 2,
+    games: 45,
+    gear: 12,
+    imageUrl: 'https://images.unsplash.com/photo-1595169060158-f2f1337567d4?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    name: 'PlayStation',
+    systems: 1,
+    games: 28,
+    gear: 8,
+    imageUrl: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    name: 'Xbox',
+    systems: 1,
+    games: 12,
+    gear: 4,
+    imageUrl: 'https://images.unsplash.com/photo-1605901309584-818e25960a8f?q=80&w=800&auto=format&fit=crop'
+  }
+];
+
+export const GAMES: Game[] = [
+  {
+    id: '1',
+    title: 'Elden Ring',
+    platform: 'PS5',
+    genre: 'Action RPG',
+    year: 2022,
+    imageUrl: 'https://images.unsplash.com/photo-1650383300898-94f4f7752e8d?q=80&w=800&auto=format&fit=crop',
+    value: 2450,
+    change: '+8.2%',
+    category: 'Jeux',
+    description: 'Un chef-d\'œuvre d\'action-RPG en monde ouvert développé par FromSoftware. Explorez l\'Entre-terre et devenez le Seigneur d\'Elden.'
+  },
+  {
+    id: '2',
+    title: 'Zelda: TOTK',
+    platform: 'Switch',
+    genre: 'Adventure',
+    year: 2023,
+    imageUrl: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=800&auto=format&fit=crop',
+    value: 60,
+    category: 'Jeux',
+    description: 'La suite épique de Breath of the Wild. Link explore les cieux et les profondeurs d\'Hyrule avec de nouveaux pouvoirs de construction incroyables.',
+    purchasePrice: 45,
+    purchaseValue: 55,
+    condition: 'Comme neuf',
+    format: 'Physique',
+    isLoose: false,
+    predictedValueNextMonth: 62,
+    evolution12Months: '+15.4%'
+  },
+  {
+    id: 'n1',
+    title: 'Super Mario Odyssey',
+    platform: 'Switch',
+    genre: 'Platformer',
+    year: 2017,
+    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop',
+    value: 45,
+    category: 'Jeux',
+    description: 'Rejoignez Mario dans une aventure en 3D à travers le monde, utilisant son nouvel allié Cappy pour prendre le contrôle d\'ennemis et d\'objets.',
+    purchasePrice: 30,
+    purchaseValue: 35,
+    condition: 'Très bon état',
+    format: 'Physique',
+    isLoose: false,
+    predictedValueNextMonth: 46,
+    evolution12Months: '+8.2%'
+  },
+  {
+    id: 'n2',
+    title: 'Mario Kart 8 Deluxe',
+    platform: 'Switch',
+    genre: 'Racing',
+    year: 2017,
+    imageUrl: 'https://images.unsplash.com/photo-1592155931584-901ac15763e3?q=80&w=800&auto=format&fit=crop',
+    value: 50,
+    category: 'Jeux',
+    description: 'La version ultime de Mario Kart 8, incluant tous les DLC et de nouveaux personnages. Le jeu de course familial par excellence.',
+    purchasePrice: 40,
+    purchaseValue: 45,
+    condition: 'Neuf',
+    format: 'Physique',
+    isLoose: false,
+    predictedValueNextMonth: 51,
+    evolution12Months: '+5.1%'
+  },
+  {
+    id: 'n3',
+    title: 'Metroid Dread',
+    platform: 'Switch',
+    genre: 'Action-Adventure',
+    year: 2021,
+    imageUrl: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop',
+    value: 40,
+    category: 'Jeux',
+    description: 'Samus Aran revient dans une aventure en 2D intense. Échappez aux robots E.M.M.I. et explorez la mystérieuse planète ZDR.',
+    purchasePrice: 35,
+    purchaseValue: 38,
+    condition: 'Très bon état',
+    format: 'Physique',
+    isLoose: true,
+    predictedValueNextMonth: 42,
+    evolution12Months: '+12.0%'
+  },
+  {
+    id: 'n4',
+    title: 'Animal Crossing: NH',
+    platform: 'Switch',
+    genre: 'Simulation',
+    year: 2020,
+    imageUrl: 'https://images.unsplash.com/photo-1585620385456-4759f9b5c7d9?q=80&w=800&auto=format&fit=crop',
+    value: 45,
+    category: 'Jeux',
+    description: 'Évadez-vous sur une île déserte et créez votre propre paradis. Personnalisez votre maison, votre île et faites-vous de nouveaux amis.',
+    purchasePrice: 35,
+    purchaseValue: 40,
+    condition: 'Bon état',
+    format: 'Physique',
+    isLoose: false,
+    predictedValueNextMonth: 44,
+    evolution12Months: '+2.5%'
+  },
+  {
+    id: '3',
+    title: 'Cyberpunk 2077',
+    platform: 'PC',
+    genre: 'Sci-Fi',
+    year: 2020,
+    imageUrl: 'https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?q=80&w=800&auto=format&fit=crop',
+    value: 40,
+    category: 'Jeux',
+    description: 'Une histoire d\'action-aventure en monde ouvert qui se déroule à Night City, une mégalopole obsédée par le pouvoir, le glamour et la modification corporelle.'
+  },
+  {
+    id: '4',
+    title: 'GOW Ragnarok',
+    platform: 'PS5',
+    genre: 'Action',
+    year: 2022,
+    imageUrl: 'https://images.unsplash.com/photo-1605142859862-978be7eba909?q=80&w=800&auto=format&fit=crop',
+    value: 50,
+    category: 'Jeux',
+    description: 'Kratos et Atreus doivent voyager dans chacun des neuf royaumes à la recherche de réponses, alors que les forces asgardiennes se préparent à une bataille prophétisée.'
+  },
+  {
+    id: '5',
+    title: 'Earthbound (CIB)',
+    platform: 'Retro',
+    genre: 'RPG',
+    year: 1994,
+    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop',
+    value: 2450,
+    change: '+8.2%',
+    category: 'Jeux',
+    description: 'Un RPG culte de la SNES connu pour son humour décalé, son cadre moderne et son histoire touchante. Un objet de collection rare.'
+  },
+  {
+    id: '6',
+    title: 'Panzer Dragoon Saga',
+    platform: 'Retro',
+    genre: 'RPG',
+    year: 1998,
+    imageUrl: 'https://images.unsplash.com/photo-1592155931584-901ac15763e3?q=80&w=800&auto=format&fit=crop',
+    value: 1100,
+    change: '+12.4%',
+    category: 'Jeux',
+    description: 'L\'un des RPG les plus rares et les plus acclamés de la Sega Saturn. Une aventure épique avec un système de combat unique.'
+  },
+  // Consoles
+  {
+    id: 'c1',
+    title: 'Nintendo Switch OLED',
+    platform: 'Nintendo',
+    genre: 'Console',
+    year: 2021,
+    imageUrl: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?q=80&w=800&auto=format&fit=crop',
+    value: 350,
+    category: 'Consoles',
+    description: 'Le dernier modèle de la Switch avec un écran OLED vibrant de 7 pouces, un large support ajustable et un port LAN filaire.'
+  },
+  {
+    id: 'c2',
+    title: 'PlayStation 5',
+    platform: 'PlayStation',
+    genre: 'Console',
+    year: 2020,
+    imageUrl: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=800&auto=format&fit=crop',
+    value: 500,
+    category: 'Consoles',
+    description: 'La console de nouvelle génération de Sony, offrant des graphismes 4K, un SSD ultra-rapide et un retour haptique immersif.'
+  },
+  // Accessoires
+  {
+    id: 'a1',
+    title: 'DualSense Edge',
+    platform: 'PlayStation',
+    genre: 'Controller',
+    year: 2023,
+    imageUrl: 'https://images.unsplash.com/photo-1592840331052-16e15c2c6f95?q=80&w=800&auto=format&fit=crop',
+    value: 200,
+    category: 'Accessoires',
+    description: 'Une manette ultra-personnalisable conçue pour la haute performance, avec des boutons interchangeables et des profils réglables.'
+  },
+  {
+    id: 'a2',
+    title: 'Switch Pro Controller',
+    platform: 'Nintendo',
+    genre: 'Controller',
+    year: 2017,
+    imageUrl: 'https://images.unsplash.com/photo-1595169060158-f2f1337567d4?q=80&w=800&auto=format&fit=crop',
+    value: 70,
+    category: 'Accessoires',
+    description: 'La manette classique pour la Switch, offrant une prise en main confortable, des commandes de mouvement et des vibrations HD.'
+  }
+];
+
+export const MONTHLY_DATA = [
+  { name: 'JAN', value: 400 },
+  { name: 'FEB', value: 300 },
+  { name: 'MAR', value: 600 },
+  { name: 'APR', value: 450 },
+  { name: 'MAY', value: 700 },
+  { name: 'JUN', value: 550 },
+  { name: 'JUL', value: 800 },
+];
