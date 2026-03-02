@@ -135,25 +135,7 @@ const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: 
 
 const CollectionView = ({ filter, onBack, onGameClick }: { filter?: { platform?: string, category?: string }, onBack?: () => void, onGameClick: (game: Game) => void, key?: string }) => {
   const filteredGames = GAMES.filter(game => {
-    if (filter?.platform) {
-      const platform = filter.platform.toLowerCase();
-      const gamePlatform = game.platform.toLowerCase();
-      
-      // Mapping logic: Nintendo includes Switch and Retro (if it's a Nintendo retro game, but here we simplify)
-      if (platform === 'nintendo') {
-        if (gamePlatform !== 'nintendo' && gamePlatform !== 'switch' && !game.title.toLowerCase().includes('nintendo')) {
-          // Check if it's one of our known Nintendo games that might be labeled 'Retro'
-          const nintendoRetroIds = ['5']; // Earthbound
-          if (!nintendoRetroIds.includes(game.id)) return false;
-        }
-      } else if (platform === 'playstation') {
-        if (gamePlatform !== 'playstation' && gamePlatform !== 'ps5') return false;
-      } else if (platform === 'xbox') {
-        if (gamePlatform !== 'xbox') return false;
-      } else if (gamePlatform !== platform && !gamePlatform.includes(platform)) {
-        return false;
-      }
-    }
+    if (filter?.platform && game.platform !== filter.platform && !game.platform.includes(filter.platform)) return false;
     if (filter?.category && game.category !== filter.category) return false;
     return true;
   });
