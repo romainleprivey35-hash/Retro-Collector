@@ -9,7 +9,8 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// Register Service Worker
+// Service Worker registration removed to prevent white screen issues on mobile
+/*
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(err => {
@@ -17,3 +18,4 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+*/

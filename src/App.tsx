@@ -14,7 +14,7 @@ import {
   Zap,
   TrendingUp as Insights
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   AreaChart, 
   Area, 
