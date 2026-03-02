@@ -14,7 +14,7 @@ import {
   Zap,
   TrendingUp as Insights
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   AreaChart, 
   Area, 
@@ -43,17 +43,16 @@ function cn(...inputs: ClassValue[]) {
 const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: string, category: string) => void, onStatsClick: () => void, key?: string }) => {
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-      className="px-6 space-y-8 pb-32 gpu"
+      exit={{ opacity: 0, y: -20 }}
+      className="px-6 space-y-8 pb-32"
     >
       {/* Global Stats Card */}
       <section>
         <button 
           onClick={onStatsClick}
-          className="w-full glass-card rounded-3xl p-6 deep-shadow bg-white/60 flex items-center justify-between group active:scale-[0.98] transition-transform duration-200 touch-manipulation"
+          className="w-full glass-card rounded-3xl p-6 deep-shadow bg-white/60 flex items-center justify-between group active:scale-[0.98] transition-all"
         >
           <div className="flex items-center gap-4">
             <div className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shadow-inner">
@@ -82,8 +81,6 @@ const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: 
                 <img 
                   src={platform.imageUrl} 
                   alt={platform.name} 
-                  loading="lazy"
-                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -97,7 +94,7 @@ const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: 
               <div className="grid grid-cols-3 gap-3">
                 <button 
                   onClick={() => onTileClick(platform.name, 'Jeux')}
-                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-transform duration-200 active:scale-95 text-left touch-manipulation"
+                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-all active:scale-95 text-left"
                 >
                   <Gamepad2 className="text-primary" size={20} />
                   <div>
@@ -108,7 +105,7 @@ const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: 
                 
                 <button 
                   onClick={() => onTileClick(platform.name, 'Consoles')}
-                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-transform duration-200 active:scale-95 text-left touch-manipulation"
+                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-all active:scale-95 text-left"
                 >
                   <Monitor className="text-primary" size={20} />
                   <div>
@@ -119,7 +116,7 @@ const DashboardView = ({ onTileClick, onStatsClick }: { onTileClick: (platform: 
                 
                 <button 
                   onClick={() => onTileClick(platform.name, 'Accessoires')}
-                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-transform duration-200 active:scale-95 text-left touch-manipulation"
+                  className="bg-white/50 rounded-2xl p-3 flex flex-col gap-2 shadow-md border border-white/40 hover:shadow-lg transition-all active:scale-95 text-left"
                 >
                   <Zap className="text-primary" size={20} />
                   <div>
@@ -145,14 +142,18 @@ const CollectionView = ({ filter, onBack, onGameClick }: { filter?: { platform?:
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-      className="px-4 pb-32 gpu"
+      exit={{ opacity: 0, y: -20 }}
+      className="px-4 pb-32"
     >
       <div className="mb-6 flex justify-between items-end px-2">
         <div className="flex flex-col gap-2">
+          {onBack && (
+            <button onClick={onBack} className="flex items-center gap-1 text-primary font-bold text-sm mb-1">
+              <ChevronLeft size={16} /> Retour
+            </button>
+          )}
           <h1 className="text-3xl font-black tracking-tight text-black">
             {filter?.category ? `${filter.category} ${filter.platform || ''}` : 'My Vault'}
           </h1>
@@ -170,14 +171,12 @@ const CollectionView = ({ filter, onBack, onGameClick }: { filter?: { platform?:
           <button 
             key={game.id} 
             onClick={() => onGameClick(game)}
-            className="flex flex-col gap-3 text-left group active:scale-[0.98] transition-transform duration-200 touch-manipulation"
+            className="flex flex-col gap-3 text-left group active:scale-[0.98] transition-all"
           >
             <div className="glass-card rounded-[2rem] p-2 shadow-2xl overflow-hidden aspect-[3/4] relative">
               <img 
                 src={game.imageUrl} 
                 alt={game.title} 
-                loading="lazy"
-                decoding="async"
                 className="w-full h-full object-cover rounded-[1.5rem] transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -207,20 +206,24 @@ const GameDetailsView = ({ game, onBack }: { game: Game, onBack: () => void, key
 
   return (
     <motion.div 
-      initial={{ opacity: 0, x: 10 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -10 }}
-      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-      className="px-6 pb-32 space-y-6 gpu"
+      exit={{ opacity: 0, x: -20 }}
+      className="px-6 pb-32 space-y-6"
     >
+      <div className="flex items-center gap-4">
+        <button onClick={onBack} className="glass-card size-12 flex items-center justify-center rounded-xl active:scale-95 transition-transform">
+          <ChevronLeft size={24} />
+        </button>
+        <h2 className="text-2xl font-black tracking-tight truncate flex-1">Fiche Info</h2>
+      </div>
+
       {/* Main Card */}
       <div className="glass-card rounded-[3rem] overflow-hidden deep-shadow bg-white">
         <div className="aspect-[4/5] overflow-hidden">
           <img 
             src={game.imageUrl} 
             alt={game.title} 
-            loading="eager"
-            decoding="async"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -318,14 +321,13 @@ const AnalyticsView = ({ onBack }: { onBack: () => void, key?: string }) => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-      className="px-4 space-y-6 pb-32 gpu"
+      exit={{ opacity: 0, y: -20 }}
+      className="px-4 space-y-6 pb-32"
     >
       <div className="flex items-center gap-4 mb-2">
-        <button onClick={onBack} className="glass-card size-12 flex items-center justify-center rounded-xl active:scale-95 transition-transform duration-200 touch-manipulation">
+        <button onClick={onBack} className="glass-card size-12 flex items-center justify-center rounded-xl active:scale-95 transition-transform">
           <ChevronLeft size={24} />
         </button>
         <h2 className="text-2xl font-black tracking-tight">Collection Analytics</h2>
@@ -420,8 +422,6 @@ const AnalyticsView = ({ onBack }: { onBack: () => void, key?: string }) => {
                 <img 
                   src={game.imageUrl} 
                   alt={game.title} 
-                  loading="lazy"
-                  decoding="async"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

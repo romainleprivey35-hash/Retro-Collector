@@ -10,7 +10,7 @@
 
 @layer base {
   body {
-    @apply bg-background-light font-sans text-slate-900 antialiased;
+    @apply bg-background-light font-sans text-slate-900;
     overscroll-behavior: none;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -18,7 +18,6 @@
     overflow-x: hidden;
     padding-bottom: env(safe-area-inset-bottom);
     padding-top: env(safe-area-inset-top);
-    -webkit-tap-highlight-color: transparent;
   }
 
   body::-webkit-scrollbar {
@@ -28,8 +27,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/40 backdrop-blur-xl border border-white/50 shadow-xl;
-    transform: translateZ(0); /* Hardware acceleration */
+    @apply bg-white/60 backdrop-blur-md border border-white/50 shadow-xl;
   }
   
   .deep-shadow {
@@ -37,14 +35,6 @@
   }
   
   .nav-glass {
-    @apply bg-white/60 backdrop-blur-2xl border-t border-white/20;
-    transform: translateZ(0);
-  }
-
-  .gpu {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-    will-change: transform, opacity;
+    @apply bg-white/80 backdrop-blur-lg border-t border-white/20;
   }
 }
